@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Authentication</title>
+    <script>
+        function authenticateUser() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            
+            if (name.trim() === "") {
+                alert("Please enter your name.");
+                return;
+            }
+            
+            age = parseInt(age);
+            
+            if (isNaN(age)) {
+                alert("Please enter a valid age.");
+                return;
+            }
+            
+            if (age > 18) {
+                window.location.href = "BudgetTracker.html"; // Redirect to another page
+            } else {
+                alert("You are not eligible to access this page.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>User Authentication</h2>
+    <form onsubmit="event.preventDefault(); authenticateUser();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" required><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
